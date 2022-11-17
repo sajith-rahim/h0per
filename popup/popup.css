@@ -1,0 +1,242 @@
+body {
+
+    padding: .5em;
+    width: 35em;
+    overflow: hidden;
+    font-family: 'Fira Code', monospace;
+}
+
+
+.main {
+    display: grid;
+    grid-template-columns: 30% 70% 200px;
+    grid-template-areas:
+        "header  header"
+        "sidebar content"
+        "sidebar  content";
+
+    color: #444;
+
+}
+
+
+.header {
+    grid-area: header;
+    min-height: 3em;
+    border-bottom: 3px grey solid;
+}
+
+
+.sidebar {
+    grid-area: sidebar;
+    border-right: 3px grey solid;
+}
+
+.content {
+    grid-area: content;
+    color: #444;
+    min-height: 35em;
+    max-height: 35em;
+    overflow-y: scroll;
+}
+
+
+.form {
+    grid-area: form;
+    max-height: 35em;
+    overflow-y: scroll;
+    padding: 2em;
+}
+
+
+.list-card {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    /* min-height: 45px; */
+    grid-auto-rows: auto;
+    justify-content: space-evenly;
+    align-content: center;
+    padding: 10px 0px 0px 0px;
+
+}
+
+
+.list-card-icon {
+    padding-left: 10px;
+    cursor: pointer;
+    fill: rgb(61, 61, 61);
+}
+
+
+
+.list-card-content {
+    padding: .5em 0em;
+}
+
+.list-card-actions {}
+
+.logo {
+    display: flex;
+}
+
+.logo-title {
+    font-weight: 900;
+    font-size: medium;
+}
+
+.logo-title:hover {
+    font-size: x-large;
+}
+
+.logo-subtitle {
+    font-size: xx-small;
+}
+
+
+.bi-arrow-up-right-circle {
+    margin: 2px !important;
+}
+
+.bi-arrow-up-right-circle:hover {
+    fill: black;
+
+}
+
+/* scrollbar */
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: rgb(189, 184, 184);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: rgb(102, 102, 104);
+    border-radius: 20px;
+    border: 3px solid rgb(189, 184, 184);
+}
+
+
+
+
+.list-card-content::selection {
+    color: #e19421;
+    background-color: transparent;
+}
+
+
+
+.no-records-msg-add-action {
+    padding-left: 7em;
+    cursor: pointer;
+}
+
+.add-new-instance {
+    cursor: pointer;
+}
+
+.uk-nav-default li {
+    cursor: pointer;
+}
+
+
+/* spinner */
+
+.spinner-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 75vh;
+    color: #e19421;
+}
+
+/* no records */
+.no-records-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 75vh;
+}
+
+
+
+/* release notes */
+.release-notes-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;;
+}
+
+.release-notes-entry{
+    padding: 10px;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+}
+
+.release-notes-entry-row{
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+}
+
+
+.hidden {
+    display: none;
+}
+
+.vertical-spacer-16 {
+    margin: 16px 0;
+}
+
+.vertical-spacer-4 {
+    margin: 4px 0;
+}
+
+.no-action {
+    cursor: default;
+}
+
+.close-form-btn {
+    padding: 5px;
+}
+
+.fill-red {
+    color: red !important;
+}
+
+.fill-black {
+    color: black;
+}
+
+.fill-green {
+    color: #008000 !important;
+}
+
+
+.list-card-icon>svg:hover {
+    fill: grey;
+}
+
+.sidenav-bottom-cred {
+    transform: translateY(1.5em) scale(1.1);
+}
+
+.sidenav-bottom-cred-title {
+    font-weight: 100;
+    font-size: x-small;
+}
+
+.sidenav-bottom-cred-subtitle {
+    font-size: xx-small;
+}
+
+.version-badge {
+    margin: auto;
+    background-color: rgb(131, 128, 128) !important;
+}
+
+.opt-disabled {
+    color: rgba(150, 145, 145, 0.881) !important;
+}
