@@ -1,0 +1,16 @@
+body {
+    background-color: #222;
+    color: #eee;
+}
+
+.wrapper {
+    display: grid;
+    place-content: center;
+    margin: auto;
+}
+
+.placeholder {
+    text-align: center;
+    margin: auto;
+    color: lightgray;
+}
