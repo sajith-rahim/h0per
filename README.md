@@ -43,6 +43,11 @@ npm install
 npm run build
 ```
 
+## Load Extension
+
+1. Goto chrome://extensions and turn on developer mode.
+2. Click on Load  unpacked and select the dist folder
+
 ## License
 
     MIT
