@@ -1,0 +1,25 @@
+{
+  "name": "hoper",
+  "version": "1.0.1",
+  "description": "Utility for HiHop instance management.",
+  "scripts": {
+    "build": "parcel build manifest.json --config @parcel/config-webextension settings/settings.html",
+    "test-vanilla": "jest",
+    "test-chrome": "echo :: add tests with jest-chrome"
+  },
+  "keywords": [
+    "hoper",
+    "hihop"
+  ],
+  "author": "sajith.rahim @drovahkin",
+  "license": "ISC",
+  "dependencies": {
+    "@parcel/config-webextension": "^2.8.0",
+    "parcel": "^2.8.0"
+  },
+  "devDependencies": {
+    "jest": "^29.3.1",
+    "@testing-library/dom": "^7.2.1",
+    "@testing-library/jest-dom": "^5.5.0"
+  }
+}
