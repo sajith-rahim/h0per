@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "description": "Utility for HiHop instance management.",
   "scripts": {
-    "build": "parcel build manifest.json --config @parcel/config-webextension settings/settings.html",
+    "build": "parcel build manifest.json --config @parcel/config-webextension settings/settings.html --no-source-maps",
     "test-vanilla": "jest",
     "test-chrome": "echo :: add tests with jest-chrome"
   },
