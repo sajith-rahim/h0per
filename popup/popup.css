@@ -240,3 +240,11 @@ body {
 .opt-disabled {
     color: rgba(150, 145, 145, 0.881) !important;
 }
+
+.uk-navbar-nav {
+    gap:15px !important;
+}
+
+.text-tiny{
+    font-size: .45rem !important; 
+}
