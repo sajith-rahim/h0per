@@ -55,6 +55,7 @@ $(".reset-instance-list").on('click', () => {
 $(".catalog-req").on('click', (el) => handleURLRedirect(el));
 
 
+
 function handleFormOpen() {
     //debugger;
     $(".content").hide();
@@ -290,4 +291,7 @@ order = item_order.reduce((r, k, v) => Object.assign(r, { [k]: v }), {});
 array.sort((a, b) => order[a.CODE] - order[b.CODE]);
 
 */
+
+
+
 
