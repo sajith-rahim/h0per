@@ -15,7 +15,8 @@
     },
     "permissions": [
         "storage",
-        "contextMenus"
+        "contextMenus",
+        "notifications"
     ],
     "host_permissions": [
         "*://*/*"
@@ -33,5 +34,38 @@
                 "content/foreground.js"
             ]
         }
-    ]
+    ], 
+    "commands": {
+        "cmd-home": {
+            "suggested_key": {
+                "default": "Alt+H",
+                "mac": "Alt+H"
+            },
+            "description": "Open Home"
+        },
+        "cmd-script-includes": {
+            "suggested_key": {
+                "default": "Alt+S",
+                "mac": "Alt+S"
+            },
+            "description": "Open Script Includes"
+        },
+        "cmd-background-script": {
+            "suggested_key": {
+                "default": "Alt+B",
+                "mac": "Alt+B"
+            },
+            "description": "Open Background Script"
+        },
+        "cmd-log": {
+            "suggested_key": {
+                "default": "Alt+L",
+                "mac": "Alt+L"
+            },
+            "description": "Open System Log"
+        },
+        "cmd-cs-conversation": {
+            "description": "Open CS Conversation"
+        }
+    }
 }
