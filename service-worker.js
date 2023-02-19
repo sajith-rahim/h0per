@@ -2,7 +2,7 @@
 // when the extension is installed or refreshed (or when you access its console).
 // It would correspond to the background script in chrome extensions v2.
 
-console.log("This prints to the console of the service worker (background script)")
+//console.log("This prints to the console of the service worker (background script)")
 
 // Importing and using functionality from external files is also possible.
 
@@ -47,6 +47,12 @@ chrome.runtime.onInstalled.addListener(async () => {
             id: "post-to-console",
         });
         chrome.contextMenus.create({
+            title: "Add Debugger",
+            contexts:["selection"],
+            parentId: "hoper_l0",
+            id: "add-log-stmt",
+        });
+        chrome.contextMenus.create({
             type: "separator",
             contexts:["selection"],
             parentId: "hoper_l0",
@@ -61,6 +67,10 @@ chrome.contextMenus.onClicked.addListener((info, tab)=> {
     switch (info.menuItemId) {
         case "post-to-console":
             sendToForeground("post-to-console",info.selectionText)
+            break;
+        
+        case "add-log-stmt":
+            sendToForeground("add-log-stmt", info.selectionText);
             break;
     
         default:
@@ -144,6 +154,7 @@ function addInstanceEntryToContextMenu(menuItem){
             id: menuItem.instance_name,
             });
     } catch (error) {
+        sendChromeNotification("⛔️ Error.","Failed to to add instance to context menu.");
         console.log("failed to add instance to menu", menuItem);
     }
 }
@@ -153,6 +164,65 @@ function removeInstanceEntryToContextMenu(menuItemId){
     try {
         chrome.contextMenus.remove(menuItemId);
     } catch (error) {
+        sendChromeNotification("⛔️ Error.","Failed to to remove instance from context menu.");
         console.log("failed to remove instance to menu", menuItemId);
     }
+}
+
+
+//command-listener
+chrome.commands.onCommand.addListener(function (_command) {
+
+    let cmdPathMap = {
+        "cmd-home": "now",
+        "cmd-script-includes": "script-includes",
+        "cmd-background-script": "background-script",
+        "cmd-log": "log",
+        "cmd-cs-conversation": "cs-conversation"
+    }
+    debugger;
+
+    if(!cmdPathMap[_command]){
+        return;
+    }
+    handleCommandShortcuts(cmdPathMap[_command]);
+});
+
+function handleCommandShortcuts(path){
+    getCurrentTab().then((tab) => {
+        let _url = tab.url || "";
+        if(! _url.length > 0){
+            sendChromeNotification("⛔️ Error in processing command.","Failed to retrieve current tab details.");
+            console.log("Failed to retrieve current tab details.");
+            return;
+        }
+        debugger
+        let regex = /(((?:https?:\/\/)?(?:www\.)?service-now\.com\/)(.*)?)/g
+
+        if(tab.url.search(regex) == -1){
+            sendChromeNotification("⛔️ Error in processing command.","Requested command is valid only in servicenow instances.");
+            console.log("Requested command is valid only for servicenow instances.");
+            return;
+        }
+        let domain = tab.url.replace(regex, '$2');
+        
+        let target = domain + path;
+
+        chrome.tabs.create({ url: target });
+    
+    });
+}
+
+
+function sendChromeNotification(_title, _message){
+    chrome.notifications.create(
+        (+new Date * Math.random()).toString(36).substring(0,6),
+        {
+          type: "basic",
+          iconUrl: "logo/hoper-128.png",
+          title: _title,
+          message: _message,
+        },
+        ( () => {})
+      );
 }
