@@ -48,6 +48,13 @@ npm run build
 1. Goto chrome://extensions and turn on developer mode.
 2. Click on Load  unpacked and select the dist folder
 
+
+### Shortcuts
+
+Set additional shortcuts from
+
+`chrome://extensions/shortcuts`
+
 ## License
 
     MIT
@@ -78,3 +85,27 @@ npm run build
 #### Post to console
 
 <img src="https://raw.githubusercontent.com/sajith-rahim/h0per/main/md_static/hoper-post-to-console.png" height="240px"/>
+
+
+
+
+
+
+
+"content_scripts": [
+        {
+            "all_frames": true,
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "content/foreground.js",
+                "popup/js/lib.js"
+            ],
+            "css": [
+                "popup/css/uikit.min.css"
+            ]
+        }
+    ], 
+
+```
