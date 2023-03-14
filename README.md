@@ -89,9 +89,11 @@ Set additional shortcuts from
 
 
 
-
-
-
+<details>
+  <summary>manifest > content-script</summary>
+  
+ ```
+  
 "content_scripts": [
         {
             "all_frames": true,
@@ -107,5 +109,8 @@ Set additional shortcuts from
             ]
         }
     ], 
+  
 
 ```
+</details>
+
